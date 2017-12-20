@@ -1,0 +1,648 @@
+
+/*搜索框*/
+.search_box {
+	position: fixed;
+	top:10px;
+	left: 580px;
+    width: 0;
+    height: 50px;
+    border: 1px solid #ccc;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #333;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+.show_search_box{
+	z-index:5;
+    width: 480px;
+    left: 100px;
+    opacity: 1;
+    background-color: #FFF;
+}
+/*搜索宽旁边的取消键*/
+.cancel{
+	position: fixed;
+	top: 20px;
+	left:20px;
+	font-size: 30px;
+	opacity: 0;
+	/*transition: 0.9s;*/
+	background-color: #FFF;
+}
+.show_cancel{
+	opacity: 1;
+	z-index: 5;
+}
+/*返回上一级*/
+.show_Upper{
+	opacity: 1;
+	z-index: 4;
+}
+
+
+/*顶部栏*/
+.top_onebox{
+	position: fixed;
+	top: 0;
+    left: 0;
+    right: 0;
+    width: 750px;
+    height: 90px;
+    font-size: 34px;
+    z-index: 2;
+    background-color: #fff;
+    color: #333;
+}
+.top_twobox{
+	width: 100%;
+	height: 100%;
+}
+.top_twobox div{
+	display: inline-block;
+	margin-top: 14px;
+}
+.logo_box,.address_box{
+	margin-left: 240px;
+}
+.address_box{
+	font-size: 27px;
+	margin-left: 10px;
+}
+.icon-arrLeft-fill{
+	font-size: 35px;
+}
+.sousuo_caidan i{
+	font-size: 35px;
+	margin-right: 30px;
+}
+/*根据百聘设置，幻灯片的分页圈圈是往右靠的，如果需要居中就直接删掉这个吧*/
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+	left: 280px;
+}
+
+/*内容盒子*/
+.content_box{
+	width: 750px;
+	text-align: center;
+	padding-top:90px; 
+}
+.slide_onebox{
+	height: 211px;
+}
+.nav_pagination{
+	padding-top: 10px;
+}
+.nav_twobox,.nav_pagination {
+	background-color: #fff;
+}
+.nav_twobox div{
+	margin:38px 0 0;
+}
+.nav_twobox div img{
+	width: 115px;
+	height: 160px;
+}
+/*我的简历我的收藏等*/
+.myall_onebox{
+	background-color: #fff;
+	padding-bottom:20px;
+}
+.myall_twobox div{
+	margin-top: 16px;
+}
+.myall_twobox div a{
+	margin:0 10px;
+}
+/*地区热招和热门兼职和最新兼职*/
+.diqurezhao_onebox,.remenjianzhi_onebox,.zuixinjianzhi_onebox{
+	padding: 40px 40px 20px 27px;
+}
+.diqurezhao_title,.diqurezhao_title i,.remenjianzhi_title,.zuixinjianzhi_title{
+	font-size: 36px;
+}
+.diqurezhao_content,.remenjianzhi_content{
+	font-size: 30px;
+	width: 680px;
+	height: 200px;
+}
+.diqurezhao_content tr:first-child,.remenjianzhi_content tr:not(:last-child),.zuixinjianzhi_content div:not(:last-child){
+	border-bottom:2px solid #f1f1f1;
+}
+.remenjianzhi_content tr td{
+	padding:20px;
+}
+.diqurezhao_content a,.remenjianzhi_content a{
+	color:black;
+}
+
+/*热门分类-公共样式-显示部分*/
+.remenfenlei_twobox{
+	padding:40px 30px 40px 27px;
+}
+.remenfenlei_title{
+	font-size: 36px;
+}
+.Public_style .Public_style_show{
+	border-bottom:2px solid #f1f1f1;
+	padding:40px 0;
+}
+.Public_style .Public_style_show li:first-child{
+	color:#9F9D9D;
+}
+.Public_style ul li a{
+	color:black;
+}
+.Public_style .Public_style_show li:not(:last-child),.Public_style_hidden ul li{
+	display: inline-block;
+	width: 155px;
+	text-align: left;
+	font-size: 27px;
+}
+.Public_style .Public_style_show li:last-child{
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+}
+.Public_style .Public_style_show li:last-child i{
+	font-size: 30px;
+}
+/*热门分类-公共样式-隐藏部分*/
+.Public_style_hidden{
+	padding-left: 155px;
+}
+.Public_style_hidden ul{
+	text-align: left;
+}
+.Public_style_hidden ul li{
+	padding:20px 0;
+}
+/*热门分类-显示更多与收起全部的样式*/
+.remenfeilei_look_collect{
+	padding:40px 0 0 0;
+}
+.remenfeilei_look_collect span,.remenfeilei_look_collect i{
+	font-size: 26px;
+}
+/*名企校招*/
+.enterprise_title{
+	padding:20px 0 0 25px;
+	font-size: 36px;
+}
+.enterprise_list_onebox{
+	padding-bottom: 30px;
+}
+.enterprise_list_twobox{
+	margin-top: 20px;
+}
+.enterprise_list_twobox .one{
+	margin:0 -15px;
+}
+.enterprise_list_twobox .two{
+	margin-left:20px;
+}
+.enterprise_list_twobox .three{
+	margin-left:40px;
+}
+.enterprise_list_twobox div img{
+	width: 160px;
+	height: 145px;
+}
+/*最新兼职*/
+.zuixinjianzhi_content div{
+	padding:30px 0;
+	
+}
+
+.zuixinjianzhi_content a span:first-child{
+	width: 75%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	float: left;
+	font-size: 26px;
+	text-align: left;
+	color:black;
+}
+.zuixinjianzhi_content a span:last-child{
+	width: 25%;
+	float: right;
+	font-size: 26px;
+	color:#F7AA33;
+	text-align: right;
+}
+
+
+
+
+
+
+/*弹出栏*/
+.menu_onebox{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 750px;
+	height: 100%;
+	z-index: 6;	
+}
+.menu_twobox{
+	height: 100%;
+}
+/*弹出栏-内容*/
+ .menu_content{
+ 	position: absolute;
+ 	top:0;
+ 	right: 0;
+	width: 70%;
+	height: 100%;
+	background-color: #FFF;
+}
+
+.menu_content_user{
+	width: 100%;
+	height: 230px;
+	position: relative;
+}
+.menu_content_user_img{
+	padding-left:68px;
+	width: 25%;
+	position: absolute;
+	top: 60px;left: 0;
+
+}  
+.menu_content_user_img img{
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+}
+.menu_content_user_name{
+	width: 50%;
+	position: absolute;
+	top: 80px;left: 200px;
+}
+
+.menu_content_user_name span{
+	font-size: 48px;
+}
+/*导航列表*/
+.menu_content_list li{
+	margin: 60px 0 0 72px;
+}
+.menu_content_list li span:last-child{
+	font-size: 32px;
+	margin-left:40px;
+}
+.menu_content_list li:not(:first-child) span{
+	color:#575656;
+}
+
+.menu_content_list li span:first-child{
+	font-size: 30px;
+}
+.menu_content_list_shouye span:last-child{
+	font-weight: bold;
+}
+.menu_content_list li:last-child{
+	padding-bottom: 100px;
+}
+
+/*弹出栏-遮罩*/
+.menu_mask{
+	width: 30%;
+	height: 100%;
+	background-color: #424141;
+	opacity: 0.8;
+	z-index: 6;
+	transition: .35s;
+}
+.hidden_menu_mask{
+	opacity: 0;
+}
+.menu_mask_onebox{
+	height: 100%;
+}
+.menu_mask_finger {
+	width: 100%;
+	padding-top: 450px;
+	text-align: center;
+	color: #FFF;
+	opacity: 0.7;
+}
+.menu_mask_finger span{
+	font-size: 60px;
+}
+.menu_mask_finger p{
+	font-size: 26px;
+	color: #FFF;
+	opacity: 0.8;
+}
+
+/*城市地址*/
+.city_onebox{
+	position: fixed;
+	width: 750px;
+	height: 100%;
+	background-color: #FFF;
+	top:0;
+	left: 0;
+	z-index: 6;
+}
+.city_twobox{
+	padding:147px 30px;
+}
+.city_title_onebox{
+	position: fixed;
+	width: 750px;
+	top: 0;
+	background-color: #FFF;
+	z-index: 6;
+	text-align: center;
+}
+.city_title_twobox{
+	padding: 37px 30px;
+}
+.city_title_twobox i,.city_title_twobox span{
+	font-size: 34px;
+	font-weight: bold;
+}
+.city_content,.city_content .icon-refresh,.city_letter_list{
+	font-size: 26px;
+}
+.city_Location_title,.city_Location_content,.city_hot,.city_hot_title{
+	padding:13px 0;
+}
+.city_Location_content div,.city_hot_list{
+	display: inline-block;
+	margin:0 7px;
+}
+.city_Location_content div:first-child{
+	/*background-color: #F8F8F8;*/
+	text-align: center;
+	line-height:75px;
+
+}
+.city_hot_list{
+	width:29.35%;
+	background-color: #F8F8F8;
+	text-align: center;
+	line-height:75px;
+	
+}
+.city_hot_list{
+	margin-bottom: 20px;
+}
+.location_hot{
+	position: fixed;
+	top: 110px;
+	right: 25px;
+	text-align: center;
+	font-size: 23px;
+	z-index: 6;
+}
+.location_hot li{
+	line-height: 40px;
+}
+.location_hot_letter{
+	position: fixed;
+	top:40%;
+	left:40%;
+	width: 130px;
+	line-height: 130px;
+	background-color: #FFF;
+	text-align: center;
+	font-size: 70px;
+	border-radius: 5%;
+	border:1px solid #DEDEDE;
+	color:#75F287;
+	z-index: 6;
+}
+.city_letter_list{
+	padding-bottom: 50px;
+}
+.city_letter_list .city_one_letter{
+
+	font-weight: bold;
+}
+.city_letter_list .city_name{
+	border-bottom:2px solid #f1f1f1;
+	line-height: 90px;
+}
+
+
+
+/*招聘板块css*/
+.zhaoping_zhezhao{
+	width: 750px;
+	height: 40%;
+	position: fixed;
+	bottom:0;
+	left: 0;
+	background-color: #747474;
+	z-index: 4;
+	opacity: 0.8;
+}
+.zhaoping_onebox{
+	width: 750px;
+	text-align: center;
+	padding-top:90px;
+
+}
+.full_time_Choice_onebox{
+	position: relative;
+	background-color: #FFF;
+}
+
+/*招聘板块完成筛选按钮*/
+.ok_go{
+	position: absolute;
+	top:710px;
+	width: 100%;
+	left: 0;
+	z-index: 7;
+	height: 100px;
+	overflow: hidden;
+}
+
+/*招聘板块-导航-导航内容*/
+/*.nav_content_one_two_box{z-index: 7}*/
+.nav_content_one{
+	position: absolute;
+	top:110px;
+	width: 50%;
+	left: 0;
+	z-index: 7;
+	background-color: #FFF;
+	height: 600px;
+	overflow: hidden;
+}
+.nav_content_one_li_css{
+	width: 100%;
+	text-align: left;
+	font-size: 27px;
+	padding:31px 0 31px 71px;
+	border-bottom: 1px solid #EAEAEA;
+	border-right: 1px solid #EAEAEA;
+	background-color: #FCFAFA;
+}
+
+.nav_content_one_li_color{
+	background-color: #FFF;
+}
+.nav_content_two{
+	position: absolute;
+	top:110px;
+	width: 50%;
+	left: 375px;
+	z-index: 7;
+	background-color: #FFF;
+	height: 600px;
+	overflow: hidden;
+}
+.nav_content_two ul li{
+	width: 100%;
+	text-align: left;
+	font-size: 27px;
+	padding:31px 0 31px 71px;
+	background-color: #FFF;
+}
+.nav_content_two ul li i{
+	font-size: 27px;
+	margin-left: 130px;
+}
+
+.nav_content_three ul li i,.nav_content_four ul li i{	font-size: 37px;margin-left: 530px;}
+
+.nav_content_three,.nav_content_four{
+	position: absolute;
+	top:110px;
+	width: 100%;
+	left: 0px;
+	z-index: 5;
+	background-color: #FFF;
+	height: 600px;
+	overflow: hidden;
+}
+.nav_content_three ul li,.nav_content_four ul li{
+	width: 100%;
+	text-align: left;
+	font-size: 27px;
+	padding:25px 0 25px 31px;
+	border-bottom: 1px solid #EAEAEA;
+	border-right: 1px solid #EAEAEA;
+	background-color: #FFF;
+	color:#828080;
+}
+
+
+.fixed_box{/*滚动条到一定位置固定nav*/
+	width: 100%;
+	position: fixed;
+	top:90px;
+	left: 0;
+	z-index: 5;
+	background-color: #FFF;
+}
+.full_time_Choice_twobox{
+
+	padding: 30px 0;
+	border-bottom:2px solid #f1f1f1; 
+}
+.full_time_Choice_twobox ul li{
+	width: 25%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	display: inline-block;
+	font-size: 32px;
+	/*margin: 0 40px;*/
+}
+.full_time_Choice_twobox .icon-arrLeft-fill,.full_time_Choice_twobox .icon-arrUp-fill{
+	font-size: 27px;
+	margin-left: 12px;
+}
+.yiujob_Promotion_top{
+	padding: 30px 30px 25px 30px;
+}
+.yiujob_Promotion_newtop{
+	padding: 140px 30px 25px 30px;
+}
+.yiujob_Promotion{
+	text-align: left;
+	font-size: 28px;
+	color: #B4B2B2;
+}
+.full_time_content_twobox{
+	padding: 0 35px;
+	min-height: 600px;
+}
+.full_time_content_list{
+	border-bottom: 2px solid #f1f1f1;
+}
+.full_time_content_list div{
+	margin-top:5px;
+}
+.full_time_content_list div:last-child{
+	padding-bottom: 30px;
+}
+.full_time_content_list div:nth-child(1) span:nth-child(1){
+	width: 83%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    font-size: 36px;
+    color: black;
+}
+.full_time_content_list div:nth-child(1) span:nth-child(2){
+	font-size: 26px;
+	margin-top:11px;
+	color: #999;
+}
+.full_time_content_list div:nth-child(2){
+	width:100%;
+	text-align: left;
+}
+.full_time_content_list div:nth-child(2) span:first-child{
+	color: #f60;
+	font-size: 30px;
+
+}
+.full_time_content_list div:nth-child(2) span:not(:first-child){
+	border:0.5px solid #ABA8A8;
+	font-size: 15px;
+	padding: 1.5px;
+	margin: 0 3px;
+
+}
+.full_time_content_list div:nth-child(3) span:nth-child(1){
+	width: 75%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	font-size: 26px;
+	color: #6A6969;
+	text-align: left;
+}
+.full_time_content_list div:nth-child(3) span:nth-child(2){
+	font-size: 26px;
+	color: #999;
+}
+
+
+/* animate动画css
+离开
+@keyframes outLeft{
+	to{transform: translateX(-100%);}
+}
+进入
+@keyframes inRight{
+	from{transform:translateX(100%);}
+	to{transform: translateX(0);}
+}
+.ng-enter{z-index: 88;}
+.ng-leave{z-index: 99;}
+.full_time_animate .ng-enter{animation: inRight 0.5s both ease-in;}
+.full_time_animate .ng-leave{animation: outLeft 0.5s both ease-in;} */

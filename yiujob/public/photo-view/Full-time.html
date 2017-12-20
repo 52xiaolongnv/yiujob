@@ -1,0 +1,382 @@
+<div class="zhaoping_onebox">
+	<div class="zhaoping_twobox">
+		<!-- 遮罩 -->
+		<div class="zhaoping_zhezhao" iscroll ng-if="nav_switch!=null;" ng-click="nav_zhezhao()"><div></div></div>
+		<!-- 轮播图栏 -->
+		<div class="swiper-container slide_onebox">
+	        <div class="swiper-wrapper slide_twobox" >
+	            <div class="swiper-slide slide_threebox"> 
+	            	<a href="http://www.baidu.com">
+	            		<img ng-src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2790037154,143061155&fm=58" style="width: 100%;">
+	            	</a>
+	            </div>
+	            <div class="swiper-slide slide_threebox">
+	            	<a href="http://www.baidu.com">
+	            		<img ng-src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1984397460,1247901900&fm=58" style="width: 100%;">
+	            	</a>
+	            </div>
+	            <div class="swiper-slide slide_threebox">
+	            	<a href="http://www.baidu.com">
+	            		<img ng-src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2929107248,2847899291&fm=58" style="width: 100%;">
+	            	</a>
+	            </div>
+	            <div class="swiper-slide slide_threebox">
+	            	<a href="http://www.baidu.com">
+	            		<img ng-src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1038138514,2258678831&fm=58" style="width: 100%;">
+	            	</a>
+	            </div>
+	        </div>
+	        <!-- Add Pagination --> 
+	        <div class="swiper-pagination slide_pagination"></div>
+	        <!-- Add Arrows -->
+	<!-- 				        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div> -->
+	    </div>
+		<!-- 选择区 --><!--  -->
+		<div ng-class="{true:'fixed_box',false:'full_time_Choice_onebox'}[nav_fixed]" sticky offset ="90">
+			<div class="full_time_Choice_twobox">
+				<div>
+				<ul>
+					<li ng-repeat="x in nav_list track by $index" ng-click="show_nav_list_content($index)">{{x}}<i ng-class="{true:'iconfont icon-arrUp-fill',false:'iconfont icon-arrLeft-fill'}[nav_switch==$index]"></i></li>
+				</ul>
+				</div>
+			</div>
+			<div  class="nav_content_one_two_box" ng-show="nav_switch==0">
+				<!-- 导航内容-职位-左 -->
+				<div id="nav_content_one" class="nav_content_one" iscroll>
+					
+						<ul>
+							<li ng-repeat="x in nav_all_content track by $index" ng-click="onclick_nav_list($index)" ng-class="{true:'nav_content_one_li_css nav_content_one_li_color',false:'nav_content_one_li_css'}[nav_show==$index]" >{{x.industry}}</li>
+						</ul>
+				
+				</div>
+				<!-- 导航内容-职位-右 -->
+				<div id="nav_content_two" class="nav_content_two" ng-repeat="a in nav_all_content track by $index" ng-show="nav_show==$index&&nav_switch==0" iscroll>
+						<ul >
+							<li ng-repeat="b in a.industry_list track by $index" ng-click="onclick_nav_list_gou(b,$index,a.id)">{{b}} <i class="iconfont icon-gou" ng-show="nav_show_gou==$index&&nav_show==panduan_gou"></i></li>
+						</ul>
+				
+				</div>
+			</div>
+			<!-- 导航内容-区域 -->
+			<div class="nav_content_three" ng-show="nav_switch==1" iscroll>
+				<ul>
+					<li ng-click="click_quyu('null')">全{{my_city_name.name}}<i class="iconfont icon-gou" ng-show="specific_quyu=='null'"></i></li>
+					<li ng-repeat="qy in two_quyu track by $index" ng-click="click_quyu($index)">{{qy.name}}<i class="iconfont icon-gou" ng-show="specific_quyu==$index"></i></li>
+				</ul>
+			</div>
+			<!-- 导航内容-薪资 -->
+			<div class="nav_content_four" ng-show="nav_switch==2" iscroll>
+				<ul>
+					<li>不限<i class="iconfont icon-gou" ng-if="show_xinzi=='null'"></i></li>
+					<li ng-repeat="a in xinzi track by $index" ng-click="click_xinzi($index)">{{a}}<i class="iconfont icon-gou" ng-if="show_xinzi==$index"></i></li>
+				</ul>
+			</div>
+			<!-- 导航内容-更多 -->
+			<div  ng-show="nav_switch==3">
+				<!-- 导航内容-更多-左 -->
+				<div id="nav_content_one" class="nav_content_one" iscroll>
+					
+						<ul>
+							<li ng-repeat="x in more track by $index" ng-click="onclick_nav_more_list($index)" ng-class="{true:'nav_content_one_li_css nav_content_one_li_color',false:'nav_content_one_li_css'}[nav_more_show==$index]" >{{x.name}}</li>
+						</ul>
+				
+				</div>
+				<!-- 导航内容-更多-右 -->
+				<div id="nav_content_two" class="nav_content_two" ng-repeat="a in more track by $index" ng-show="nav_more_show==$index&&nav_switch==3" iscroll>
+						<ul >
+							<li>不限<i class="iconfont icon-gou"></i></li>
+							<li ng-repeat="b in a.name_content track by $index">{{b}}<i class="iconfont icon-gou"></i></li>
+						</ul>
+				
+				</div>
+			</div>
+			<!-- 完成筛选按钮-弃用 -->
+			<!-- <div class="ok_go">
+				<button style="width: 100%;height: 100%;" ng-click="lo()">完成筛选</button>
+			</div> -->
+		</div>
+		<!-- 内容区 -->
+		<div class="full_time_content_onebox">
+			<!-- 优job推介 -->
+			<div ng-class="{true:'yiujob_Promotion yiujob_Promotion_newtop',false:'yiujob_Promotion yiujob_Promotion_top'}[nav_fixed]">
+				<span>优job为您推介296216个职位{{lo}}</span>
+			</div>
+			<div class="full_time_content_twobox">
+				<!-- 列表开始 -->
+				<div class="full_time_content_list" ng-repeat="x in all_work | filter:{'jobcontent':jobcontent,'quyu':quyu,'pay':pay,'experience':'','education':''} track by $index">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">{{x.title}}</span>
+							<span class="fr">{{x.time}}</span>
+						</div>
+						<!-- 薪酬-福利 -->
+						<div>
+							<span>{{x.pay}}</span>
+							<span ng-repeat="a in x.welfare track by $index">{{a}}</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">{{x.city}}市 {{x.name}}</span>
+							<span class="fr">优job招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+				<div class="full_time_content_list">
+					
+						<!-- 标题 -->
+						<div class="clearfix">
+							<span class="fl">司机</span>
+							<span class="fr">12-02</span>
+						</div>
+						<!-- 薪酬 -->
+						<div>
+							<span>2000-3000</span>
+							<span>包吃</span>
+							<span>包住</span>
+							<span>五险一金</span>
+						</div>
+						<!-- 地区及公司名称 -->
+						<div class="clearfix">
+							<span class="fl">惠州市 上海某科技信息公司</span>
+							<span class="fr">百姓招聘</span>
+						</div>
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app' ng-controller='homepage'>
+<head>
+	<meta charset="UTF-8">
+	<title>优job</title>
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<!-- user-scalable=no 禁止缩放-->
+	<meta name="viewport" id="viewpotr" content="width=750">
+	<script src="/photojs/mobile-util.js"></script>
+	<link rel="stylesheet" href="Swiper-3.4.2/dist/css/swiper.min.css"><!-- 轮播css -->
+	<link rel="stylesheet" type="text/css" href="/photocss/reset.css">
+	<link rel="stylesheet" type="text/css" href="/photocss/index.css">
+	<link rel="stylesheet" type="text/css" href="font_one/iconfont.css">
+	<script src="Swiper-3.4.2/dist/js/swiper.min.js"></script>
+	<script src='/angular/angular.js'></script>
+	<script src="/angular-ui-router/release/angular-ui-router.js " ></script>
+	<script src="/angular-animate/angular-animate.min.js"></script>
+	<script src='angular-swiper/dist/angular-swiper.js'></script>
+	<script src="/photojs/index.js"></script>
+	<script src="/photojs/iscroll.js"></script>
+	<script src="/photojs/iscroll-probe.js"></script>
+	<script src="/photojs/sticky.js"></script>
+
+	<!-- 判断ios版本 -->
+<!-- <script>
+    var str= navigator.userAgent.toLowerCase(); 
+    var ver=str.match(/cpu iphone os (.*?) like mac os/);
+    if(!ver){//非IOS系统
+        // 引入fastclick文件
+        // alert("请在Ios系统中打开");
+        // includeFastclickJsFile();
+    }else{
+    	// alert("你当前的Ios系统版本为："+ver[1].replace(/_/g,"."));
+        /*console.log("你当前的Ios系统版本为："+ver[1].replace(/_/g,"."));
+        if(parseInt(ver[1])>=10){
+            //不必引入fastclick文件
+        }else{
+            // 引入fastclick文件
+            includeFastclickJsFile();
+        }*/
+    }
+    function includeFastclickJsFile(){
+        var oHead = document.getElementsByTagName('HEAD').item(0);  
+        let fastclick= document.createElement("script");
+        let fastclickAttach = document.createElement("script");
+        fastclick.type = "text/javascript";  
+        fastclick.src="../static/jq_weui/1.0.0/lib/fastclick.js";  
+        fastclickAttach.type = "text/javascript";  
+        fastclickAttach.src="../static/lib/fastClick/fastclick_attach.js";  
+        oHead.appendChild(fastclick);
+        oHead.appendChild(fastclickAttach);
+    }
+</script> -->
+	<script src="/photojs/fastclick.js"></script>
+	<script src="angular-iscroll/src/lib/angular-iscroll.js"></script>
+</head>
+<body>
+	<!-- 搜索栏与取消键 -->
+	<input type="text" name="sousuo"  placeholder="找职位 | 找公司" ng-class="{true:'search_box show_search_box',false:'search_box'}[sousuo_state]">
+	<div ng-class="{true:'cancel show_cancel',false:'cancel'}[sousuo_state]" ng-click="cancel_seach()"><span>取消</span></div>
+	<!-- 返回上一级 -->
+	<div ng-class="{true:'cancel show_Upper',false:'cancel'}[Upper]" onClick="javascript: history.go(-1);"><i class="iconfont icon-fanhui1" style="font-size: 32px;" ></i></div>
+	
+	<!-- 顶部栏 -->
+	<div class="top_onebox" iscroll>
+		<div class="top_twobox">
+			<div class="logo_box">
+				<img src="qietu_img/momo.gif" style="height: 50px;">
+				<img src="qietu_img/logo.png" style="height: 50px;">
+			</div>
+			<div class="address_box" ng-click="Choose_the_city
+()">
+				<span>{{my_city_name.name}}<i class="iconfont icon-arrLeft-fill"></i></span>
+			</div>
+			<div class="sousuo_caidan fr clearfix">
+				<i class="iconfont icon-sousuo" ng-click="go_seach()"></i>
+				<i class="iconfont icon-caidan1" ng-click="open_menu()"></i>
+			</div>
+		</div>
+	</div>
+	<div ui-view></div>
+
+
+    <!-- 弹出栏 -->
+    <div class="menu_onebox" ng-show="menu_state">
+		<div class="menu_twobox">
+			<!-- 弹出栏内容 -->
+			<div class="menu_content" iscroll >
+				<div class="menu_content_onebox">
+					<!-- 头像栏 -->
+					<div class="menu_content_user">
+						<div class="menu_content_user_img">
+							<img src="/qietu_img/user.jpg">
+						</div>
+						<div class="menu_content_user_name">
+							<div><span>未登录</span></div>
+						</div>
+					</div>
+					<!-- 导航列表 -->
+					<div class="menu_content_list">
+						<ul>
+							<li class="menu_content_list_shouye">
+								<span class="iconfont icon-shouye"></span>
+								<span>首页</span>
+							</li>
+							<li style="font-size: 38px;color: #999;"><p>找工作</p></li>
+							<li>
+								<span class="iconfont icon-mingpian"></span>
+								<span><a ui-sref="Recruit({job:'null',jobcontent:'null'})" ng-click="open_menu()">全职招聘</a></span>
+							</li>
+							<li>
+								<span class="iconfont icon-boshimao"></span>
+								<span>校园招聘</span>
+							</li>
+							<li>
+								<span class="iconfont icon--"></span>
+								<span>名企推荐</span>
+							</li>
+							<li>
+								<span class="iconfont icon-pin"></span>
+								<span>招聘会</span>
+							</li>
+							<li>
+								<span class="iconfont icon-jianzhi"></span>
+								<span>靠谱兼职</span>
+							</li>
+							<li style="font-size: 38px;color: #999;"><p>求职资讯</p></li>
+							<li>
+								<span class="iconfont icon-icon"></span>
+								<span>求职经验</span>
+							</li>
+							<li>
+								<span class="iconfont icon-paihang"></span>
+								<span>排行榜</span>
+							</li>
+							<li>
+								<span class="iconfont icon-shipin"></span>
+								<span>求职视频</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 遮罩手指关闭 -->
+			<div ng-class="{true:'menu_mask',false:'menu_mask hidden_menu_mask'}[menu_state]" iscroll ng-click="open_menu()">
+				<div class="menu_mask_onebox">
+					<div class="menu_mask_finger">
+						<span class="iconfont icon-shouzhiicon"></span>
+						<p>轻触这里关闭</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div><!-- 弹出栏终点 -->
+
+    <!-- 地址栏 -->
+    <div id="city_onebox" class="city_onebox" ng-if="City_Selection">
+    	<div class="city_twobox">
+
+    		<div class="city_content">
+				<div class="city_Location">
+					<div class="city_Location_title">定位</div>
+					<div class="city_Location_content">
+						<!-- <div>{{my_city_name.name}}</div> -->
+						<div><i  class="iconfont icon-refresh"></i><span> {{Auto_Location}}</span></div>
+					</div>
+				</div>
+				<div class="city_hot">
+					<div class="city_hot_title">热门</div>
+					<div class="city_hot_content">
+						<div class="city_hot_list" ng-repeat="x in hot_region track by $index" ng-click="city_name(x,x.city)">{{x.name}}</div>
+					</div>
+				</div>
+    		</div>
+
+			<div class="city_letter_list" ng-repeat="a in city_json track by $index">
+				<div id="{{a.initial}}" class="city_one_letter">{{a.initial}}</div>
+				<div class="city_name" ng-repeat="b in a.list track by $index" ng-click="city_name(b,$index)">{{b.name}}</div>
+			</div>
+    		
+    	</div>
+    </div><!-- 地址栏终点 -->
+    <!-- 地址顶部 -->
+	<div class="city_title_onebox" iscroll ng-if="City_Selection">
+		<div class="city_title_twobox clearfix">
+			<span class="fl" ng-click="off_Choose_the_city()"><i class="iconfont icon-fanhui1"></i></span>
+			<span>{{mytop_city_name.name}}</span>
+			<!-- 搜索框不想加了 -->
+			<!-- <i class="iconfont icon-sousuo fr"></i> -->
+		</div>
+	</div>
+
+    <!-- 定位热门-固定在右侧栏-点击地址栏才显示 -->
+	<div class="location_hot" iscroll ng-if="City_Selection">
+		<ul>
+			<li>定位</li>
+			<li>热门</li>
+			<li ng-repeat="x in location_hot track by $index" ng-click='location_letter(x)'>{{x}}</li>
+		</ul>
+	</div>
+	<!-- 点击定位热门字母后显示的框 -->
+	<div class="location_hot_letter" ng-show="show_letter">
+		<div>{{letter}}</div>
+	</div>
+
+	
+</body>
+</html>
